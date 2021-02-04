@@ -13,5 +13,5 @@ class CreateNewFileCommand(sublime_plugin.WindowCommand):
         filepath = self.window.active_view().file_name()
         new_filepath = os.path.join(os.path.dirname(filepath),
                                     new_filename)
-        new_filepath = new_filepath.replace(' ', '\ ')
+        new_filepath = new_filepath.replace(' ', '\\ ')
         os.system('subl {}'.format(new_filepath))
