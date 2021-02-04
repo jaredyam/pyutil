@@ -1,0 +1,6 @@
+# main README content without commands table
+CONTENT.md
+# .csv used to generate commands table
+commands.csv
+# TODO
+TODO.md
