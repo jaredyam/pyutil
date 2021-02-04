@@ -31,5 +31,9 @@
         "caption": "pyutil: open new terminal window",
         "command": "open_new_terminal_window"
     },
+    {
+        "caption": "pyutil: pytest",
+        "command": "pytest"
+    },
 
 ]
