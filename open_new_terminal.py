@@ -1,22 +1,26 @@
 import sublime_plugin
 
 import os
+from .osx_utils import call_terminal, open_terminal_with_new_window
 
 
 class OpenNewTerminalTabCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
-        filepath = os.path.dirname(self.view.file_name())
-        new_tab_command = """osascript -e 'tell application "Terminal" to activate' -e 'tell application "System Events" to tell process "Terminal" to keystroke "t" using command down' -e 'tell application "Terminal" to do script "cd {}" in selected tab of the front window'""".format(
-            filepath)
-
-        os.system(new_tab_command)
+        if self.view.file_name():
+            filepath = os.path.dirname(self.view.file_name())
+            call_terminal(run_command='cd {}'.format(filepath),
+                          new_tab=True)
+        else:
+            call_terminal(new_tab=True)
 
 
 class OpenNewTerminalWindowCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
-        filepath = os.path.dirname(self.view.file_name())
-        new_window_command = ('open -a /System/Applications/'
-                              'Utilities/Terminal.app {}'.format(filepath))
-        os.system(new_window_command)
+        if self.view.file_name():
+            filepath = os.path.dirname(self.view.file_name()).replace(' ',
+                                                                      '\\ ')
+            open_terminal_with_new_window(filepath)
+        else:
+            open_terminal_with_new_window()
