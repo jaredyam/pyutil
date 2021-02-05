@@ -12,19 +12,21 @@ def _generate_underline(line, char='-'):
     return prefix + char * len(heading) + '\n'
 
 
-class GenerateUnderlineWithHyphensCommand(sublime_plugin.TextCommand):
+class GenerateUnderline(sublime_plugin.TextCommand):
 
-    def run(self, edit):
-
+    def run(self, edit, char='-'):
         selected_line_with_cmdL = self.view.substr(self.view.sel()[0]).rstrip()
-        underline = _generate_underline(selected_line_with_cmdL, char='-')
+        underline = _generate_underline(selected_line_with_cmdL, char=char)
         self.view.insert(edit, self.view.sel()[0].end(), underline)
 
 
-class GenerateUnderlineWithEqualsCommand(sublime_plugin.TextCommand):
+class GenerateUnderlineWithHyphensCommand(GenerateUnderline):
 
     def run(self, edit):
+        super(GenerateUnderlineWithEqualsCommand, self).run(edit, char='-')
 
-        selected_line_with_cmdL = self.view.substr(self.view.sel()[0]).rstrip()
-        underline = _generate_underline(selected_line_with_cmdL, char='=')
-        self.view.insert(edit, self.view.sel()[0].end(), underline)
+
+class GenerateUnderlineWithEqualsCommand(GenerateUnderline):
+
+    def run(self, edit):
+        super(GenerateUnderlineWithEqualsCommand, self).run(edit, char='=')
