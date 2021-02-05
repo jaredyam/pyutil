@@ -1,11 +1,27 @@
 📦 pyutil.sublime - plugins
----------------------------
+===========================
 
 *Tiny commands, easy life.* A collection of tiny commands could let me code with ST3 more comfortably.
 
-## Notes
+**Note:**
 
-Currently part of these plugins just run well on a macOS machine with the `subl` shell command enabled.
+- All commands that invoke the terminal will open the `Terminal` application by default, thereby restricted to run on macOS only
+- `create_new_file` supposes that the shell command `subl` for invoking ST3 from command line is available
+
+## Installation
+
+- **Git**: clone the repository in your Sublime Text "Packages" directory:
+
+    ```bash
+    git clone https://github.com/jaredyam/pyutil.git
+    ```
+
+    The "Packages" directory on macOS is located at:
+
+    ```bash
+    ~/Library/Application Support/Sublime Text 3/Packages/
+    ```
+
 
 ## Tiny commands
 
