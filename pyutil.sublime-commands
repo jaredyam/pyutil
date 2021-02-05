@@ -8,6 +8,10 @@
         "command": "generate_underline_with_hyphens"
     },
     {
+        "caption": "pyutil: draw heading underline with right angle brackets",
+        "command": "generate_underline_with_right_angle_brackets"
+    },
+    {
         "caption": "pyutil: create test function",
         "command": "create_test_function"
     },

@@ -23,10 +23,19 @@ class GenerateUnderline(sublime_plugin.TextCommand):
 class GenerateUnderlineWithHyphensCommand(GenerateUnderline):
 
     def run(self, edit):
-        super(GenerateUnderlineWithEqualsCommand, self).run(edit, char='-')
+        super(GenerateUnderlineWithHyphensCommand,
+              self).run(edit, char='-')
 
 
 class GenerateUnderlineWithEqualsCommand(GenerateUnderline):
 
     def run(self, edit):
-        super(GenerateUnderlineWithEqualsCommand, self).run(edit, char='=')
+        super(GenerateUnderlineWithEqualsCommand,
+              self).run(edit, char='=')
+
+
+class GenerateUnderlineWithRightAngleBracketsCommand(GenerateUnderline):
+
+    def run(self, edit):
+        super(GenerateUnderlineWithRightAngleBracketsCommand,
+              self).run(edit, char='>')

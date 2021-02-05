@@ -35,4 +35,5 @@
 |`snakecase_to_camelcase`|Convert function/variabel name from snake_case to camelCase|
 |`generate_underline_with_hyphens`|Generate a heading underline with hyphens|
 |`generate_underline_with_equals`|Generate a heading underline with equals|
+|`generate_underline_with_right_angle_brackets`|Generate a heading underline with right angle brackets|
 |`pytest`|Run all tests or selected test_function(s) in current file|
