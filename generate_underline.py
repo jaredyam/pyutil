@@ -15,9 +15,15 @@ def _generate_underline(line, char='-'):
 class GenerateUnderline(sublime_plugin.TextCommand):
 
     def run(self, edit, char='-'):
-        selected_line_with_cmdL = self.view.substr(self.view.sel()[0]).rstrip()
-        underline = _generate_underline(selected_line_with_cmdL, char=char)
-        self.view.insert(edit, self.view.sel()[0].end(), underline)
+        rows = [self.view.rowcol(selected_line_with_cmdL_or_cursor.begin())[0]
+                for selected_line_with_cmdL_or_cursor in self.view.sel()]
+        lines = [self.view.substr(self.view.full_line(self.view.text_point(row, 0))).rstrip()
+                 for row in rows]
+        for i, line in enumerate(lines):
+            underline = _generate_underline(line, char=char)
+            self.view.insert(edit,
+                             self.view.text_point(rows[i] + 1 + i, 0),
+                             underline)
 
 
 class GenerateUnderlineWithHyphensCommand(GenerateUnderline):

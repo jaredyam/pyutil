@@ -28,12 +28,12 @@
 |TINY COMMANDS|DESCRIPTION|
 |:---:|---|
 |`create_new_file`|Create a new file having the same parent directory with current view|
-|`create_test_function`|Create a test function template based on the selected function name|
+|`create_test_function`|Create test function(s) template based on the selected function name|
 |`open_new_terminal_tab`|Open a new terminal tab having the same parent directory with current view|
 |`open_new_terminal_window`|Open a new terminal window having the same parent directory with current view|
 |`camelcase_to_snakecase`|Convert function/variable name from camelCase to snake_case|
-|`snakecase_to_camelcase`|Convert function/variabel name from snake_case to camelCase|
-|`generate_underline_with_hyphens`|Generate a heading underline with hyphens|
-|`generate_underline_with_equals`|Generate a heading underline with equals|
-|`generate_underline_with_right_angle_brackets`|Generate a heading underline with right angle brackets|
+|`snakecase_to_camelcase`|Convert function/variable name from snake_case to camelCase|
+|`generate_underline_with_hyphens`|Generate heading underline(s) with hyphens|
+|`generate_underline_with_equals`|Generate heading underline(s) with equals|
+|`generate_underline_with_right_angle_brackets`|Generate heading underline(s) with right angle brackets|
 |`pytest`|Run all tests or selected test_function(s) in current file|
