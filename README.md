@@ -25,7 +25,7 @@
 
 ## Tiny commands
 
-|TINY COMMANDS|DESCRIPTION|
+|Tiny Commands|Description|
 |:---:|---|
 |`create_new_file`|Create a new file having the same parent directory with current view|
 |`create_test_function`|Create test function(s) template based on the selected function name|
