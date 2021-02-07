@@ -39,5 +39,9 @@
         "caption": "pyutil: pytest",
         "command": "pytest"
     },
+    {
+        "caption": "pyutil: split selection into lines",
+        "command": "split_region_into_lines"
+    },
 
 ]
