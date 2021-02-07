@@ -27,13 +27,14 @@
 
 |Tiny Commands|Description|
 |:---:|---|
-|`create_new_file`|Create a new file having the same parent directory with current view|
-|`create_test_function`|Create test function(s) template based on the selected function name|
+|`create_new_file`|Create new file(s) having the same parent directory with current view from input or selections|
+|`create_test_function`|Create test function(s) template based on selected function name(s)|
 |`open_new_terminal_tab`|Open a new terminal tab having the same parent directory with current view|
 |`open_new_terminal_window`|Open a new terminal window having the same parent directory with current view|
-|`camelcase_to_snakecase`|Convert function/variable name from camelCase to snake_case|
-|`snakecase_to_camelcase`|Convert function/variable name from snake_case to camelCase|
+|`camelcase_to_snakecase`|Convert function/variable name(s) from camelCase to snake_case|
+|`snakecase_to_camelcase`|Convert function/variable name(s) from snake_case to camelCase|
 |`generate_underline_with_hyphens`|Generate heading underline(s) with hyphens|
 |`generate_underline_with_equals`|Generate heading underline(s) with equals|
 |`generate_underline_with_right_angle_brackets`|Generate heading underline(s) with right angle brackets|
-|`pytest`|Run all tests or selected test_function(s) in current file|
+|`pytest`|Run all tests or selected test_function(s) in the current view|
+|`split_region_into_lines`|Split selected reigons into separeted lines|
