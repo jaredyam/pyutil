@@ -8,7 +8,8 @@ class OpenNewTerminalTabCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
         if self.view.file_name():
-            filepath = os.path.dirname(self.view.file_name())
+            filepath = os.path.dirname(
+                self.view.file_name()).replace(' ', '\\\ ')
             call_terminal(run_command='cd {}'.format(filepath),
                           new_tab=True)
         else:
