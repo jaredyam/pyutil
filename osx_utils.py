@@ -1,3 +1,5 @@
+import sublime
+
 import os
 
 
@@ -19,3 +21,11 @@ def open_terminal_with_new_window(init_path=None):
     init_path = init_path if init_path is not None else '~'
     os.system('open -a /System/Applications/'
               'Utilities/Terminal.app {}'.format(init_path))
+
+
+def osx_only():
+    if sublime.platform() != 'osx':
+        sublime.error_message(
+            'Currently this plugin is only supported in macOS')
+        raise NotImplementedError(
+            'expected osx system, got {}'.format(sublime.platform()))

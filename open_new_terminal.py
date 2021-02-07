@@ -1,12 +1,14 @@
+import sublime
 import sublime_plugin
 
 import os
-from .osx_utils import call_terminal, open_terminal_with_new_window
+from .osx_utils import call_terminal, open_terminal_with_new_window, osx_only
 
 
 class OpenNewTerminalTabCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
+        osx_only()
         if self.view.file_name():
             filepath = os.path.dirname(
                 self.view.file_name()).replace(' ', '\\\ ')
@@ -19,6 +21,7 @@ class OpenNewTerminalTabCommand(sublime_plugin.TextCommand):
 class OpenNewTerminalWindowCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
+        osx_only()
         if self.view.file_name():
             filepath = os.path.dirname(self.view.file_name()).replace(' ',
                                                                       '\\ ')
