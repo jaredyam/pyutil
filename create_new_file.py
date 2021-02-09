@@ -14,7 +14,7 @@ class CreateNewFileCommand(sublime_plugin.TextCommand):
             for new_filename in selected_filenames:
                 self.create_new_file(new_filename)
         else:
-            self.view.window().show_input_panel('New File', '',
+            self.view.window().show_input_panel('New File', '.py',
                                                 self.on_done,
                                                 None,
                                                 None)
