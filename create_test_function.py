@@ -21,7 +21,7 @@ class CreateTestFunctionCommand(sublime_plugin.TextCommand):
         if count_regions == 1:
             if func_name:
                 point = self.view.text_point(
-                    self.view.rowcol(self.view.size())[0] - 1, 11)
+                    self.view.rowcol(self.view.size())[0] - 1, 12 + len(func_name))
             else:
                 point = self.view.text_point(
                     self.view.rowcol(self.view.size())[0] - 2, 9)
@@ -32,4 +32,4 @@ class CreateTestFunctionCommand(sublime_plugin.TextCommand):
 
     @staticmethod
     def create_test_function(func_name):
-        return '\ndef test_{}():\n    assert \n'.format(func_name)
+        return '\ndef test_{}():\n    assert {}()\n'.format(func_name, func_name)
