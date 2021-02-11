@@ -40,6 +40,10 @@
         "command": "pytest"
     },
     {
+        "caption": "pyutil: run current python file from terminal",
+        "command": "run_file"
+    },
+    {
         "caption": "pyutil: split selection into lines",
         "command": "split_region_into_lines"
     },
