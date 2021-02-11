@@ -1,50 +1,50 @@
 [
     {
-        "caption": "pyutil: draw heading underline with equals",
+        "caption": "📦 pyutil: draw heading underline with equals",
         "command": "generate_underline_with_equals"
     },
     {
-        "caption": "pyutil: draw heading underline with hyphens",
+        "caption": "📦 pyutil: draw heading underline with hyphens",
         "command": "generate_underline_with_hyphens"
     },
     {
-        "caption": "pyutil: draw heading underline with right angle brackets",
+        "caption": "📦 pyutil: draw heading underline with right angle brackets",
         "command": "generate_underline_with_right_angle_brackets"
     },
     {
-        "caption": "pyutil: create test function",
+        "caption": "📦 pyutil: create test function",
         "command": "create_test_function"
     },
     {
-        "caption": "pyutil: convert camelCase to snake_case",
+        "caption": "📦 pyutil: convert camelCase to snake_case",
         "command": "camelcase_to_snakecase"
     },
     {
-        "caption": "pyutil: convert snake_case to camelCase",
+        "caption": "📦 pyutil: convert snake_case to camelCase",
         "command": "snakecase_to_camelcase"
     },
     {
-        "caption": "pyutil: create new file",
+        "caption": "📦 pyutil: create new file",
         "command": "create_new_file"
     },
     {
-        "caption": "pyutil: open new terminal tab",
+        "caption": "📦 pyutil: open new terminal tab",
         "command": "open_new_terminal_tab"
     },
     {
-        "caption": "pyutil: open new terminal window",
+        "caption": "📦 pyutil: open new terminal window",
         "command": "open_new_terminal_window"
     },
     {
-        "caption": "pyutil: pytest",
-        "command": "pytest"
+        "caption": "📦 pyutil: run pytest from terminal",
+        "command": "run_pytest"
     },
     {
-        "caption": "pyutil: run current python file from terminal",
+        "caption": "📦 pyutil: run python file from terminal",
         "command": "run_file"
     },
     {
-        "caption": "pyutil: split selection into lines",
+        "caption": "📦 pyutil: split selection into lines",
         "command": "split_region_into_lines"
     },
 

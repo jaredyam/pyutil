@@ -36,6 +36,6 @@
 |`generate_underline_with_hyphens`|Generate heading underline(s) with hyphens|
 |`generate_underline_with_equals`|Generate heading underline(s) with equals|
 |`generate_underline_with_right_angle_brackets`|Generate heading underline(s) with right angle brackets|
-|`pytest`|Run all tests or selected test_function(s) in the current view|
-|`run_file`|Run current Python file from terminal|
+|`run_pytest`|Run all tests or selected test_function(s) in the current view from terminal|
+|`run_file`|Run current view of Python file from terminal|
 |`split_region_into_lines`|Split selected reigons into separeted lines|
