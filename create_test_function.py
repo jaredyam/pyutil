@@ -1,10 +1,12 @@
 import sublime
 import sublime_plugin
 
+from .name_converter import CamelcaseToSnakecaseCommand
+
 
 class CreateTestFunctionCommand(sublime_plugin.TextCommand):
 
-    """Create a test function for current selected function.
+    """Create tests for selected functions/classes.
     """
 
     def run(self, edit):
@@ -18,6 +20,8 @@ class CreateTestFunctionCommand(sublime_plugin.TextCommand):
             point = self.view.text_point(endline, 0)
             self.view.insert(edit, point, test_function)
 
+        # if there is only one test being created, move cursor to the proper
+        # position
         if count_regions == 1:
             if func_name:
                 point = self.view.text_point(
@@ -30,6 +34,9 @@ class CreateTestFunctionCommand(sublime_plugin.TextCommand):
             self.view.sel().add(sublime.Region(point))
             self.view.show(point)
 
-    @staticmethod
-    def create_test_function(func_name):
-        return '\ndef test_{}():\n    assert {}()\n'.format(func_name, func_name)
+    def create_test_function(self, name):
+        # consider both the class case and the function case
+        test_func_name = 'test_{}'.format(
+            CamelcaseToSnakecaseCommand.camelcase2snakecase(name).strip('_'))
+
+        return '\ndef {}():\n    assert {}()\n'.format(test_func_name, name)
