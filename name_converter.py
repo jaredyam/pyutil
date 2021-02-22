@@ -1,15 +1,28 @@
+import sublime
 import sublime_plugin
 
 
-class CamelcaseToSnakecaseCommand(sublime_plugin.TextCommand):
+class NameConverter(sublime_plugin.TextCommand):
 
-    """Convert function/variable name with camelCase to snake_case.
+    def run(self, edit, converter):
+        assert self.view.substr(self.view.sel()[0]), sublime.error_message(
+            'expected at least one valid selection')
+
+        selections = [sel for sel in self.view.sel()]
+        old_strs = [self.view.substr(sel) for sel in selections]
+        new_strs = [converter(s) for s in old_strs]
+        for region, new_str in zip(selections, new_strs):
+            self.view.replace(edit, region, new_str)
+
+
+class CamelcaseToSnakecaseCommand(NameConverter):
+
+    """Convert variable names with camelCase to snake_case.
     """
 
     def run(self, edit):
-        selected_text = self.view.substr(self.view.sel()[0])
-        changed_text = self.camelcase2snakecase(selected_text)
-        self.view.replace(edit, self.view.sel()[0], changed_text)
+        super(CamelcaseToSnakecaseCommand, self).run(edit,
+                                                     self.camelcase2snakecase)
 
     @staticmethod
     def camelcase2snakecase(name):
@@ -25,15 +38,14 @@ class CamelcaseToSnakecaseCommand(sublime_plugin.TextCommand):
         return ''.join(new_name)
 
 
-class SnakecaseToCamelcaseCommand(sublime_plugin.TextCommand):
+class SnakecaseToCamelcaseCommand(NameConverter):
 
-    """Convert function/variable name with snake_case to camelCase.
+    """Convert variable names with snake_case to camelCase.
     """
 
     def run(self, edit):
-        selected_text = self.view.substr(self.view.sel()[0])
-        changed_text = self.snakecase2camelcase(selected_text)
-        self.view.replace(edit, self.view.sel()[0], changed_text)
+        super(SnakecaseToCamelcaseCommand, self).run(edit,
+                                                     self.snakecase2camelcase)
 
     @staticmethod
     def snakecase2camelcase(name):
