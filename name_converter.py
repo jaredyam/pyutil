@@ -27,13 +27,22 @@ class CamelcaseToSnakecaseCommand(NameConverter):
     @staticmethod
     def camelcase2snakecase(name):
         new_name = []
+        continous_caps = []
 
         for char in name:
             if char.isupper():
-                new_name.append('_')
-                new_name.append(char.lower())
+                continous_caps.append(char)
             else:
+                if len(continous_caps) > 0:
+                    continous_caps.insert(-1, '_')
+                    new_name.append(''.join(continous_caps).lower())
+                    continous_caps = []
                 new_name.append(char)
+
+        if continous_caps:
+            if new_name:
+                new_name.append('_')
+            new_name.append(''.join(continous_caps).lower())
 
         return ''.join(new_name)
 
