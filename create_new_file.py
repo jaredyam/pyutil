@@ -1,3 +1,4 @@
+import sublime
 import sublime_plugin
 
 import os
@@ -6,7 +7,8 @@ import os
 class CreateNewFileCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
-        assert self.view.file_name() is not None, 'expected at least a base view/file opened'
+        assert self.view.file_name() is not None, sublime.error_message(
+            'expected at least a base view/file opened')
 
         filename_selections = [self.view.substr(region)
                                for region in self.view.sel()
