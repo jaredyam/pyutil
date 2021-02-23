@@ -38,4 +38,4 @@
 |`generate_underline_with_right_angle_brackets`|View::Selections (Doc-string)|Generate heading underline(s) with right angle brackets|
 |`run_pytest`|View::File or Selections (func_name)|Run all tests or selected test_function(s) in the current view from terminal|
 |`run_file`|View::File|Run current view of Python file from terminal|
-|`split_region_into_lines`|View::File|Split selected regions into separated lines|
+|`split_into_lines_cursor_at_head`|View::Selections|Split selected regions into separated lines and place the cursor at the beginning of each line|

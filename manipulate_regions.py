@@ -1,7 +1,8 @@
+import sublime
 import sublime_plugin
 
 
-class SplitRegionIntoLinesCommand(sublime_plugin.TextCommand):
+class SplitIntoLinesCursorAtHeadCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
         for region in self.view.sel():
@@ -9,4 +10,5 @@ class SplitRegionIntoLinesCommand(sublime_plugin.TextCommand):
             if len(lines) > 1:
                 self.view.sel().clear()
                 for line in lines:
-                    self.view.sel().add(line)
+                    begin, end = line.begin(), line.end()
+                    self.view.sel().add(sublime.Region(end, begin))
