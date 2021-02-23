@@ -1,3 +1,4 @@
+import sublime
 import sublime_plugin
 
 
@@ -7,23 +8,24 @@ def _split_prefix_and_heading(line):
     return prefix, heading
 
 
-def _generate_underline(line, char='-'):
-    prefix, heading = _split_prefix_and_heading(line)
-    return prefix + char * len(heading) + '\n'
-
-
 class GenerateUnderline(sublime_plugin.TextCommand):
 
     def run(self, edit, char='-'):
-        rows = [self.view.rowcol(selected_line_with_cmdL_or_cursor.begin())[0]
-                for selected_line_with_cmdL_or_cursor in self.view.sel()]
+        rows = [self.view.rowcol(sel.begin())[0] for sel in self.view.sel()]
         lines = [self.view.substr(self.view.full_line(self.view.text_point(row, 0))).rstrip()
                  for row in rows]
         for i, line in enumerate(lines):
-            underline = _generate_underline(line, char=char)
+            prefix, heading = _split_prefix_and_heading(line)
             self.view.insert(edit,
-                             self.view.text_point(rows[i] + 1 + i, 0),
-                             underline)
+                             self.view.text_point(rows[i] + 1 + 2 * i, 0),
+                             (prefix + char * len(heading)
+                              + '\n' + prefix
+                              + '\n'))
+            if i == 0:
+                point = self.view.text_point(rows[0] + 2, len(prefix))
+                self.view.sel().clear()
+                self.view.sel().add(sublime.Region(point))
+                self.view.show(point)
 
 
 class GenerateUnderlineWithHyphensCommand(GenerateUnderline):
