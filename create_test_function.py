@@ -23,15 +23,18 @@ class CreateTestFunctionCommand(sublime_plugin.TextCommand):
         # if there is only one test being created, move cursor to the proper
         # position
         if count_regions == 1:
-            if func_name:
-                point = self.view.text_point(
-                    self.view.rowcol(self.view.size())[0] - 1, 12 + len(func_name))
-            else:
-                point = self.view.text_point(
-                    self.view.rowcol(self.view.size())[0] - 2, 9)
-
             self.view.sel().clear()
-            self.view.sel().add(sublime.Region(point))
+            if func_name:
+                point = self.view.text_point(self.view.rowcol(
+                    self.view.size())[0] - 1, 12 + len(func_name))
+                self.view.sel().add(sublime.Region(point))
+            else:
+                point = self.view.text_point(self.view.rowcol(
+                    self.view.size())[0] - 1, 11 + len(func_name))
+                self.view.sel().add(sublime.Region(point))
+                self.view.sel().add(sublime.Region(self.view.text_point(
+                    self.view.rowcol(self.view.size())[0] - 2, 9)))
+
             self.view.show(point)
 
     def create_test_function(self, name):
