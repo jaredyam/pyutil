@@ -18,7 +18,7 @@ class GenerateUnderline(sublime_plugin.TextCommand):
             prefix, heading = _split_prefix_and_heading(line)
             self.view.insert(edit,
                              self.view.text_point(rows[i] + 1 + 2 * i, 0),
-                             (prefix + char * len(heading)
+                             (prefix + char * sum([1 if len(s) == len(s.encode())else 2 for s in heading])
                               + '\n' + prefix
                               + '\n'))
             if i == 0:
