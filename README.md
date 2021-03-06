@@ -28,7 +28,7 @@
 |Tiny Commands|Scope|Description|
 |:---:|:---:|---|
 |`create_new_file`|View::File|Create new file(s) having the same parent directory with current view from input or selections|
-|`create_test_function`|View::File or Selections (func_name)|Create test function(s) template based on selected function name(s)|
+|`create_test_function`|View::File or Selections (func_name)|Create test function(s) template based on selected function/class name(s)|
 |`open_new_terminal_tab`|View::FIle|Open a new terminal tab having the same parent directory with current view|
 |`open_new_terminal_window`|View::File|Open a new terminal window having the same parent directory with current view|
 |`camelcase_to_snakecase`|View::Selections (func_name)|Convert function/variable name(s) from camelCase to snake_case|
