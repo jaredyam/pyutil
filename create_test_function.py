@@ -23,8 +23,9 @@ class CreateTestFunctionCommand(sublime_plugin.TextCommand):
             point = self.view.text_point(endline, 0)
             self.view.insert(edit, point, test_function)
 
+        n_sels = len(self.view.sel())
         self.view.sel().clear()
-        if len(self.view.sel()) == 1 and not self.is_class(name):
+        if n_sels == 1 and not self.is_class(name):
             if name:
                 point = self.view.text_point(self.view.rowcol(
                     self.view.size())[0] - 1, 12 + len(name))
