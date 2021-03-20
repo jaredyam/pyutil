@@ -48,7 +48,7 @@ class CreateTestFunctionCommand(sublime_plugin.TextCommand):
                       + ('' if is_property else '()')
                       + '\n'
                       for method, is_property in methods]
-        return ('\ndef test_{}():\n'.format(instance_name)
+        return ('\ndef test_{}():\n'.format(class_name)
                 + '    {} = {}()\n'.format(instance_name, class_name)
                 + ''.join(assertions))
 
@@ -67,7 +67,7 @@ class CreateTestFunctionCommand(sublime_plugin.TextCommand):
 
         methods = []
         is_property = True
-        # a function should at least take two lines
+        # A function should be at least two lines long
         while following_row < self.view.rowcol(self.view.size())[0] - 1:
             line = self.view.substr(self.view.line(
                 self.view.text_point(following_row, 0)))
